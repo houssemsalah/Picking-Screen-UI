@@ -56,8 +56,6 @@
 </template>
 
 <script lang="ts">
-import { ref } from 'vue';
-
 export default {
   props: {
     isRowSelected: Boolean,
@@ -65,7 +63,7 @@ export default {
   },
   data() {
     return {
-      showDetails: null,
+      showDetails: false,
       columns : [
                 {
                   name: 'severity',
@@ -75,7 +73,7 @@ export default {
                   hidden: true,
                 },
                 { name: 'action', align: 'center', label: '', field: 'action'},
-                { name: 'material', align: 'center', label: 'Material', field: row => row.material, format: val => `${val}`},
+                { name: 'material', align: 'center', label: 'Material', field: (row: { material: any; }) => row.material, format: (val: any) => `${val}`},
                 { name: 'shop_order', label: 'Shop order', field: 'shop_order' },
                 { name: 'sebango', align: 'center', label: 'Sebango', field: 'sebango'  },
                 { name: 'source_location', align: 'center', label: 'Source location', field: 'source_location' },
